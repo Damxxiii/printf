@@ -1,6 +1,4 @@
 #include "main.h"
-
-/************************* WRITE HANDLE *************************/
 /**
  * handle_write_char - Prints a string
  * @c: char types.
@@ -14,7 +12,7 @@
  */
 int handle_write_char(char c, char buffer[],
 	int flags, int width, int precision, int size)
-{ /* char is stored at left and paddind at buffer's right */
+{
 	int i = 0;
 	char padd = ' ';
 
@@ -44,7 +42,6 @@ int handle_write_char(char c, char buffer[],
 	return (write(1, &buffer[0], 1));
 }
 
-/************************* WRITE NUMBER *************************/
 /**
  * write_number - Prints a string
  * @is_negative: Lista of arguments
@@ -153,7 +150,6 @@ int write_unsgnd(int is_negative, int ind,
 	char buffer[],
 	int flags, int width, int precision, int size)
 {
-	/* The number is stored at the bufer's right and starts at position i */
 	int length = BUFF_SIZE - ind - 1, i = 0;
 	char padd = ' ';
 
@@ -167,7 +163,7 @@ int write_unsgnd(int is_negative, int ind,
 		padd = ' ';
 
 	while (precision > length)
-{
+		{
 		buffer[--ind] = '0';
 		length++;
 	}
@@ -211,7 +207,7 @@ int write_unsgnd(int is_negative, int ind,
 int write_pointer(char buffer[], int ind, int length,
 	int width, int flags, char padd, char extra_c, int padd_start)
 {
-int i;
+	int i;
 
 	if (width > length)
 	{
@@ -250,3 +246,11 @@ int i;
 		buffer[--ind] = extra_c;
 	return (write(1, &buffer[ind], BUFF_SIZE - ind - 1));
 }
+
+
+
+
+
+
+
+
